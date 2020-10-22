@@ -97,7 +97,7 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Data Science Portfolio"
   location         : "Scottsdale, AZ"
-  email            : "trobbins70@gmail.com"
+  email            : #
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -285,4 +285,4 @@ defaults:
       type: pages
     values:
       layout = single
-      author_profile: True
+      author_profile: true
