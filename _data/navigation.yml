@@ -1,11 +1,11 @@
 # main links
 main:
   - title: "About"
-    permalink: /about/
+    url: /about/
   - title: "Projects"
-    permalink: /projects/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
+    url: /projects/
+  - title: "Contact"
+    url: /contact/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
