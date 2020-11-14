@@ -9,16 +9,16 @@ header:
 classes: wide
 ---
 
-# Contact Info:
+Contact Info:
 
 
-### Name: Timothy Robbins
+Name: Timothy Robbins
 
-### email: trobbins70@gmail.com
+email: trobbins70@gmail.com
 
-### cell: (602) 881-3682
+cell: (602) 881-3682
 
-### GitHub: https://github.com/twrobbins
+GitHub: https://github.com/twrobbins
 
 
 [Return to Home Page](index.md)
