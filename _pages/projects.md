@@ -1,8 +1,7 @@
-___
-layout: archive
+---
+title: "Projects"
 permalink: /projects/
-title: "Projects by Class"
+layout: posts
+entries_layout: grid
 author_profile: true
-header:
-  image: "/images/fort point.png"
-___
+---
