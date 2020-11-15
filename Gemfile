@@ -1,1 +1,2 @@
-gem "minimal-mistakes-jekyll"
+# gem "minimal-mistakes-jekyll"
+gem "jekyll", "~> 3.5"
