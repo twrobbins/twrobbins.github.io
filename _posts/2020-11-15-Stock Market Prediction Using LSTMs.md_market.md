@@ -6,6 +6,8 @@ excerpt: # "Explanation of, and code for, a small Python tool for sampling from 
 ---
 
 
+
+
 ## Abstract
 
 In recent years, researchers have explored the application of deep learning algorithms to financial time series prediction using recurrent neural networks (RNNs).  Traditional RNN’s and other prediction models have struggled with the ability to predict long-term time-series data, such as the stock market.  Long Short-Term Memory neural networks (LSTMs), a special type of RNN, overcome this problem by incorporating sequence dependency and memory modules into the model and are thus able to process non-linear, non-stationary data.  In this study, I will be using Python’s Keras library to build a multi-layer LSTM model to predict Amazon’s closing stock price.
