@@ -3,7 +3,7 @@ title:  "Stock Market Prediction using LSTMs"
 category: posts
 date: 2020-11-15
 header:
-  image: "images/deep-learning-recurrent-neural-networks-in-python.jpg"
+  #image: "images/deep-learning-recurrent-neural-networks-in-python.jpg"
 ---
 
 ### Abstract
