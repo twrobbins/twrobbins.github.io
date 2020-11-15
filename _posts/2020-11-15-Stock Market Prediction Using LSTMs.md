@@ -33,10 +33,11 @@ Long Short-Term Memory networks (LSTM’s) are a special type of RNN that are ca
 | *Figure 1: Traditional Recurrent Neural Networks (RNNs)* |
  
 LSTMs also have this chain-like structure, but instead of a single neural network layer, there are 4 layers of both tanh and sigmoid functions, that interact in a very special way:
- 
- 
- 
 
+| ![PNG](/images/LSTMs.png)   | 
+|:--:| 
+| *Figure 2: Long Short-Term Memory (LSTM) Recurrent Neural Networks* |
+ 
 The core idea behind LSTMs is the cell state which runs across the top of the entire chain with only some minor linear interactions.  The cell state carries information througout the processing of the sequence and allows information from the earlier time steps to make its way to later steps, reducing the effects of short-term memory.  The LSTM adds or remove information to the cell state, which is carefully regulated by structures called gates.  Gates are a way to optionally let information through.  The gates contain sigmoid activations which, in short, trasform values to be between 0 and 1.  This is important to note since any number multiplied by 0 is 0, meaning the values disappear or are “forgotten.”  On the other hand, any number multiplied by 1 maintains the same value and is thus “remembered.”  Basically, the network learns which data is important and is thus kept or not important and thus forgotten.  An LSTM has 3 such gates that protect and control the cell state: a forget gate, input gate, and output gate.  In short, the forget gate decides what is important to keep from prior steps.  The input gate decides what information is important to add from the current step and the output gate determines what the next hidden layer should be.  Together, these layers and gates allow us to make a prediction that solves both the long-term dependency and vanishing gradient problems.  
 
 
