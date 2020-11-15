@@ -3,8 +3,8 @@ title:  "Stock Market Prediction using LSTMs"
 category: posts
 date: 2020-11-15
 header:
-  image: # "/images/"
-excerpt: "Explanation of, and code for, a Python Keras program to predict stock market closing prices."
+  image: # "/images/deep-learning-recurrent-neural-networks-in-python.jpg"
+ excerpt: "Python Keras program to predict stock market closing prices."
 ---
 
 ### Abstract
