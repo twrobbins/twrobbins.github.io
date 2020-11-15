@@ -3,9 +3,6 @@ layout: single
 author_profile: true
 title: "About Me"
 permalink: /about/
-header:
-#  overlay_image: "/images/parker.jpg"
-#  overlay_filter: 0.5
 classes: wide
 ---
 
