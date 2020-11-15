@@ -1,5 +1,5 @@
 ---
-layout: contact
+layout: single
 author_profile: true
 title: "Contact Me"
 permalink: /contact/
