@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "air" # "default", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Timothy Robbins"
+title                    : "Tim's Data Science Projects"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Timothy Robbins"
@@ -145,6 +145,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - _posts
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
