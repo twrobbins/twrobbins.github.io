@@ -2,6 +2,8 @@
 title:  "Stock Market Prediction using LSTMs"
 category: posts
 date: 2020-11-15
+header:
+  image: "/images/perceptron/percept.jpg"
 excerpt: # "Explanation of, and code for, a small Python tool for sampling from arbitrary distributions."
 ---
 
