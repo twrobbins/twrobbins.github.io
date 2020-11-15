@@ -40,67 +40,43 @@ The core idea behind LSTMs is the cell state which runs across the top of the en
 #### Dataset
 The dataset contains 5 years of historical trading data for Amazon stock (AMZN) retrieved from Investors Exchange Trading (IEX).  There are 6 key variables.  Date (“date”) is the date of the trade.  The stock’s opening price (“open”) is the price at which a security first trades when the exchange opens on a given trading day.  The closing price (“close”) is the final price at which a security is traded on a given trading day.  The “high” is the highest price at which a stock trades over the course of a trading day. The “low” is the lowest price at which a stock trades over the course of a trading day.  Finally, the “volume” is the total quantity of shares traded over the course of a trading day.  
 	The data that a trader is most interested in is usually the close price as this reflects the gain or loss at the end of each trading day.  Amazon’s closing price on each day for the last 5-years is shown in the graph below:
+	
+
  
 As you can see, the stock price increased steadily between days 0 and 550 and then started increasing more rapidly between days 550 to 750.  The stock remained relatively flat from days 750 through 1150, before increasing at a much more rapid pace.
 
 #### Data Preprocessing
-Several preprocessing steps were necessary to get the data ready for input into the LSTM model.  Preprocessing was done in Python using numpy and pandas.  First, a new data frame was created to store only the “close” price of the stock.  Since the LSTM model only accepts arrays, the data frame was then converted to a numpy array.  A standard practice when working with RNN’s is to normalize the data with a Sigmoid function in the output layer.  This was done using a Min/Max Scaler in the range 0 to 1.  
+Several preprocessing steps were necessary to get the data ready for input into the LSTM model.  Preprocessing was done in Python using numpy and pandas.  First, a new data frame was created to store only the “close” price of the stock.  Since the LSTM model only accepts arrays, the data frame was then converted to a numpy array.  A standard practice when working with RNN’s is to normalize the data with a Sigmoid function in the output layer.  This was done using a Min/Max Scaler in the range 0 to 1. 
+
 A special data structure was needed to cover 60-time stamps to predict the price on the 61st day.  The number of past time stamps was set to 60 based on some experimentation.  x_¬train, a nested list, was created to store a sequence of 60 time-stamp prices.  y_train was created to contain a list of stock prices which is the next day’s stock price, corresponding to each list in x_train.  Essentially, each row in x_train contains 60 prices that are used to predict the corresponding next-day stock price in y_train.  Finally, it was necessary to reshape the data to be 3-dimensional in the form: number of samples, number of time steps, and number of features, as the LSTM model is expecting a 3-dimensional array.  The number of samples represents the number of LSTM neurons in the layer.  100 neurons will give the model high dimensionality, which will enable it to capture the upwards and downwards trends.  The number of time stamps (60) is the number of days used to predict the next day price.  The number of indicators was set to 1, as we have only one feature which represents the “close” price.  
 
 ### Modeling
-	After preprocessing the data set, I began building the LSTM model using Python’s Kera’s library.  There are no definitive rules on how many nodes or hidden layers one should choose, so it took some experimentation to determine.  Using Keras, I was able to stack multiple layers on top of each other by initializing the model as sequential.  Generally, two layers have shown to be enough to detect more complex features.  More layers can be better but are harder to train.  Since the stock market is a very complex, I chose to add 3 LSTM layers to the model.  In addition, I accompanied each LSTM layer with a drop-out layer to avoid overfitting.  Overfitting is reduced by randomly ignoring selected neurons during training and thus reduces the sensitivity to the specific weights of individual neurons.  20% is often used as a compromise between model accuracy and overfitting.  For this reason, I added 3 drop-out layers at 20% following each of the LSTM layers.  The final layer to add was the activation layer.  The output dimension was set to 1 since we are predicting only the next day’s price each time.  See the Appendix for the model parameters used.  
+After preprocessing the data set, I began building the LSTM model using Python’s Kera’s library.  There are no definitive rules on how many nodes or hidden layers one should choose, so it took some experimentation to determine.  Using Keras, I was able to stack multiple layers on top of each other by initializing the model as sequential.  Generally, two layers have shown to be enough to detect more complex features.  More layers can be better but are harder to train.  Since the stock market is a very complex, I chose to add 3 LSTM layers to the model.  In addition, I accompanied each LSTM layer with a drop-out layer to avoid overfitting.  Overfitting is reduced by randomly ignoring selected neurons during training and thus reduces the sensitivity to the specific weights of individual neurons.  20% is often used as a compromise between model accuracy and overfitting.  For this reason, I added 3 drop-out layers at 20% following each of the LSTM layers.  The final layer to add was the activation layer.  The output dimension was set to 1 since we are predicting only the next day’s price each time.  See the Appendix for the model parameters used.  
 	Next, I compiled the LSTM by choosing an optimizer and loss function.  An optimizer is an algorithm that determines how to adjust the weights on the nodes in a neural network based on the difference between the predicted and actual values.  For the optimizer, I chose Adam, which is often referred to as a safe choice for RNNs.  Loss functions are used to compute the quantity that a model should seek to minimize during training, for which I used the mean of squared errors between actual values and predictions.  I then fit the model to the training data.  After much experimentation, I found the best combination of parameters to be 100 units, a batch size of 20, ran for 100 epochs.  The batch size that yielded the lowest root mean squared error (RMSE) was used.  Eighty percent of the data was used for training and the remaining twenty percent used for validation.  The training and validation losses for 100 epochs is plotted below:
+	
+	
+	
  
 Note that the overall losses decreased with more epochs, with the minimum validation loss occurring after 82 epochs.
 After importing the test data, it was necessary to concatenate the training and test data sets for prediction, as we are using the previous 60 days’ stock prices to predict the next-day price.  Thus, the input for prediction started with the index 60 days prior to the first date in the test set.  Similar to the data preprocessing steps performed on the training set, I followed the same procedure by reshaping the inputs to have one column, scaling the data between 0 and 1, and creating the special test data structure to cover the 60 time stamps.  
 
 
 ### Results
+After transforming the test data into the format required for the LSTM model, it was fed into the model to make a prediction.  The plot below shows how the prediction did against the validation data.  
 
-	After transforming the test data into the format required for the LSTM model, it was fed into the model to make a prediction.  The plot below shows how the prediction did against the validation data.  
-
+ 
+ 
  
 As you can see above, the predictions closely followed the validation data, reflecting the overall upwards and downwards trends of Amazon’s closing prices.  The predicted prices tended to deviate further from the actuals as the time frame increased since the predictions are not adjusted to actuals – they are based on the prior predictions.  For this reason, I will be predicting only one-day into the future with the test data.  I also noted that the predicted spikes tend to be less pronounced and more rounded then the actual data.  In addition, there tends to be lag between the validation and predicted data, with the predicted data being several days behind the validation data.  This may indicate that the model may not react quickly to non-linear changes but tends to react well to smooth changes.  
 With the final test set, the AMZN price predicted for the next business day was $3,134.55, while the actual came out to be $3,248.18, reflecting an accuracy of approximately 96.5%.
 
 
 ### Conclusion
-
-	This study has found that a relatively simple deep learning algorithm can be used to make reliable stock predictions.  The importance of long-term dependency issues was discussed, and it was explained how such challenges can be resolved using an LSTM model.  Historical closing prices of Amazon stock were used as the key factor in predicting the stock price.  However, simply considering the impact of historical data on price trends may be too singular and may not be able to forecast the price fully and accurately on a given day.  Future studies could potentially be enhanced by adding stock-related news and key technical indicators, such as 50-day moving average, relative strength index, and mean reversion.  
-
+This study has found that a relatively simple deep learning algorithm can be used to make reliable stock predictions.  The importance of long-term dependency issues was discussed, and it was explained how such challenges can be resolved using an LSTM model.  Historical closing prices of Amazon stock were used as the key factor in predicting the stock price.  However, simply considering the impact of historical data on price trends may be too singular and may not be able to forecast the price fully and accurately on a given day.  Future studies could potentially be enhanced by adding stock-related news and key technical indicators, such as 50-day moving average, relative strength index, and mean reversion.  
 
 
 
-### Appendix
-
-Table 1 – LSTM Model Parameters
-
-Model: "sequential"
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-lstm (LSTM)                  (None, 60, 100)           40800     
-_________________________________________________________________
-lstm_1 (LSTM)                (None, 60, 100)           80400     
-_________________________________________________________________
-dropout (Dropout)            (None, 60, 100)           0         
-_________________________________________________________________
-lstm_2 (LSTM)                (None, 60, 100)           80400     
-_________________________________________________________________
-dropout_1 (Dropout)          (None, 60, 100)           0         
-_________________________________________________________________
-lstm_3 (LSTM)                (None, 100)               80400     
-_________________________________________________________________
-dropout_2 (Dropout)          (None, 100)               0         
-_________________________________________________________________
-dense (Dense)                (None, 1)                 101       
-=================================================================
-Total params: 282,101
-Trainable params: 282,101
-Non-trainable params: 0
-_________________________________________________________________
-
-							
+					
 
 ### References
 
