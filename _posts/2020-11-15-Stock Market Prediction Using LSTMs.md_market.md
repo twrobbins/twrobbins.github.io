@@ -13,6 +13,7 @@ excerpt: # "Explanation of, and code for, a small Python tool for sampling from 
 ### Abstract
 
 In recent years, researchers have explored the application of deep learning algorithms to financial time series prediction using recurrent neural networks (RNNs).  Traditional RNN’s and other prediction models have struggled with the ability to predict long-term time-series data, such as the stock market.  Long Short-Term Memory neural networks (LSTMs), a special type of RNN, overcome this problem by incorporating sequence dependency and memory modules into the model and are thus able to process non-linear, non-stationary data.  In this study, I will be using Python’s Keras library to build a multi-layer LSTM model to predict Amazon’s closing stock price.
+
 The remainder of this study is organized as follows:  The background around recurrent neural networks is discussed, along with an overview of LSTMs.  I then discuss the methodology, including dataset selection, data preprocessing, and the modeling process.  Finally, the study is concluded with the results and conclusions.  
 
 Keywords: stock prediction, stocks, recurrent neural networks, long-short term memory, deep neural networks, python, time series, keras.  
@@ -26,6 +27,10 @@ Applications of deep learning to highly dynamic and versatile environments, such
 Traditionally, time series prediction models such as ARIMA and GARCH have been used to predict financial time series by assuming a specific model.  However, complex real-time series data, such as the stock market, contains noise that cannot be properly reflected in the model and thus has limited applicability.  On the other hand, deep learning models have been found to exhibit major advantages in processing non-linear, non-stationary data since it can capture non-linear features among the feature vectors.  Such algorithms have been successfully used in many areas of artificial intelligence, such as image recognition, natural language processing and driverless cars.  
 
 Long Short-Term Memory networks (LSTM’s) are a special type of RNN that are capable of learning long-term dependencies.  LSTM’s were explicitly designed to avoid the long-term dependency problem, as they can remember information for long periods of time.  All RNN’s have the form of a chain of repeating modules of neural network, each representing a time series.  In standard RNNs this repeating module usually has a very simple structure with only one tanh function, as shown below:
+
+| ![PNG](/images/RNNs.png)   | 
+|:--:| 
+| *Figure 1: Traditional Recurrent Neural Networks (RNNs)* |
  
 LSTMs also have this chain-like structure, but instead of a single neural network layer, there are 4 layers of both tanh and sigmoid functions, that interact in a very special way:
  
