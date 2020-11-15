@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "air" # "default", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Tim's Data Science Projects"
+title                    : "Timothy Robbins"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : "Data Science Portfolio"
 name                     : "Timothy Robbins"
-description              : "Data Science Portfolio"
+description              : # "Data Science Portfolio"
 url                      : "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "https://twrobbins.github.io"
