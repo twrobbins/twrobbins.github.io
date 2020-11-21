@@ -4,6 +4,7 @@ category: posts
 date: 2020-11-15
 header:
   #image: "images/deep-learning-recurrent-neural-networks-in-python.jpg"
+excerpt: "This paper is about using Python's Keras library to predict closing stock prices."
 ---
 
 ### Abstract
