@@ -7,6 +7,9 @@ header:
 excerpt: "This paper is about using Python's Keras library to predict closing stock prices."
 ---
 
+Link to full code [https://github.com/twrobbins/Github-Files-Updated/blob/main/DSC680-Applied%20Data%20Science/Project%201/DSC680-Project%201-Stock%20Market%20Prediction-Step%204.ipynb]
+
+
 ### Abstract
 In recent years, researchers have explored the application of deep learning algorithms to financial time series prediction using recurrent neural networks (RNNs).  Traditional RNN’s and other prediction models have struggled with the ability to predict long-term time-series data, such as the stock market.  Long Short-Term Memory neural networks (LSTMs), a special type of RNN, overcome this problem by incorporating sequence dependency and memory modules into the model and are thus able to process non-linear, non-stationary data.  In this study, I will be using Python’s Keras library to build a multi-layer LSTM model to predict Amazon’s closing stock price.
 
