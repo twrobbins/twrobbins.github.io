@@ -7,7 +7,7 @@ header:
 excerpt: "This paper is about using Python's Keras library to predict closing stock prices."
 ---
 
-| ![PNG](/images/deep-learning-recurrent-neural-networks-in-python.jpg"| 
+| ![PNG](/images/deep-learning-recurrent-neural-networks-in-python.jpg| 
 
 <br>
 
