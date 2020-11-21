@@ -7,7 +7,8 @@ header:
 excerpt: "This paper is about using Python's Keras library to predict closing stock prices."
 ---
 
-Link to full code [https://github.com/twrobbins/Github-Files-Updated/blob/main/DSC680-Applied%20Data%20Science/Project%201/DSC680-Project%201-Stock%20Market%20Prediction-Step%204.ipynb]
+Link to full code [link]
+(https://github.com/twrobbins/Github-Files-Updated/blob/main/DSC680-Applied%20Data%20Science/Project%201/DSC680-Project%201-Stock%20Market%20Prediction-Step%204.ipynb)
 
 
 ### Abstract
