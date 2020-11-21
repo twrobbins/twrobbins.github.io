@@ -3,12 +3,12 @@ title:  "Hiking EDA"
 category: posts
 date: 2019-11-11
 header:
-  teaser: "images/weather2.jpg"
-excerpt: 
+  teaser: "images/hiking.jpg"
+excerpt: The purpose of this project is to conduct comprehensive exploratory data analysis (EDA) on a hiking dataset, in preparation for creating a linear regression model to predict hike times.
 
 ---
 
-| ![PNG](/images/weather2.jpg)| 
+| ![PNG](/images/hiking.jpg)| 
 
 <br>
 
