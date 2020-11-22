@@ -1,5 +1,5 @@
 ---
-title:  "NFL Predictions Using NFL Elo Rating"
+title:  "NFL Game Predictions Using Elo Rating"
 category: posts
 date: 2020-11-16
 header:
