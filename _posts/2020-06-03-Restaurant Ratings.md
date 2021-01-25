@@ -9,5 +9,5 @@ excerpt: The purpose of this project is to create of an accurate model to predic
 
 | ![PNG](/images/coffee.png)|
 
-Link to full [code](https://github.com/twrobbins/Github-Files-Updated/blob/main/DSC630-Predictive%20Analytics/DSC630-Predicting%20Restaurant%20Ratings-Python.ipynb)
+
 
