@@ -6,5 +6,5 @@ permalink: /about/
 classes: wide
 ---
 
-I am currently a student at Bellevue Unversity who will be graduating November 21, 2020 with a masters degree in data science.  I worked as a CPA for over twenty years in Silicon Valley, mainly working with software-as-a-service (SaaS) companies on revenue recogniton.  
+I recently graduated with a masters degree in data science.  I previously worked as a CPA in Silicon Valley, mainly working with software-as-a-service (SaaS) companies on revenue recogniton.  I'm seeking a challenging position that will enable me to combine my data science skills with my domain expertise.    
  
