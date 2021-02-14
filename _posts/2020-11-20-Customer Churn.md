@@ -97,7 +97,7 @@ The confusion matrix for the test set indicates strong values for accuracy, prec
 
 In addition, the most predictive variables for the final model were arranged in order of importance as shown below:
 
-| ![PNG](/images/cc12_feature_imp.png)   | 
+| ![PNG](/images/cc12_feature.png)   | 
 |:--:| 
 | *Figure 12: Feature Importance* |
  
@@ -122,16 +122,17 @@ The key fields leading to churn were identified for possible corrective action. 
 
 ### References
 
-https://towardsdatascience.com/machine-learning-powered-churn-analysis-for-modern-day-  business-leaders-ad2177e1cb0d
-https://www.kdnuggets.com/2019/05/churn-prediction-machine-learning.html
-https://data-flair.training/blogs/r-data-science-project-customer-segmentation/
-https://rstudio-pubsstatic.s3.amazonaws.com/582266_8f09a8597a3742d1a5fc90fa231c908b.html
-https://www.kdnuggets.com/2018/12/data-science-projects-business-impact.html
-https://www.dataoptimal.com/churn-prediction-with-r/
-https://www.altexsoft.com/blog/business/customer-churn-prediction-for-subscription-businesses-using-machine-learning-main-approaches-and-models/
-https://towardsdatascience.com/predict-customer-churn-with-r
-https://rpubs.com/dhaval8895/CustomerChurn
-https://lukesingham.com/how-to-make-a-churn-model-in-r/
-https://www.kaggle.com/blastchar/improve-customer-retention-churn/data?select=WA_Fn-UseC_-Telco-Customer-Churn.csv
+Anderson, R. (2019, December 23). Stock Price Prediction Using Python & Machine Learning. Retrieved from Medium: https://medium.com/@randerson112358/stock-price-prediction-using-python-machine-learning
+Banushev, B. (2019, January 14). Using the latest advancements in AI to predict stock market movements. Retrieved from Python Awesome: https://pythonawesome.com/using-the-latest-advancements-in-ai-to-predict-stock-market-movements/
+Ganegedara, T. (2020, January 1). Stock Market Predictions with LSTM in Python. Retrieved from Data Camp: https://www.datacamp.com/community/tutorials/lstm-python-stock-market
+Koehrsen, W. (2018, January 19). Stock Prediction in Python. Retrieved from Towards Data Science: https://towardsdatascience.com/stock-prediction-in-python
+Kohorst, L. (2018, November 9). Predicting Stock Prices with Python. Retrieved from Towards Data Science: https://towardsdatascience.com/predicting-stock-prices-with-python
+Migdon, H. (2020, September 2). How To Use the Alpha Vantage API with Python to Create a Stock Market Prediction App. Retrieved from Last Call - The RapidAPI Blog: https://rapidapi.com/blog/stock-market-prediction-python-api/
+Müller, F. (2020, March 24). Stock market prediction: a time series forecasting problem. Retrieved from Relataly: https://www.relataly.com/stock-market-prediction-using-a-recurrent-neural-network
+Nayak, A. (2019, March 18). Predicting Stock Price with LSTM. Retrieved from Towards Data Science: https://towardsdatascience.com/predicting-stock-price-with-lstm
+Pochetti, F. (2014, September 20). Stock Market Prediction in Python Intro. Retrieved from Francesco Pochetti: http://francescopochetti.com/stock-market-prediction-part-introduction
+Shamdasani, S. (2017, December 15). Build a Stock Prediction Algorithm. Retrieved from Enlight: https://enlight.nyc/projects/stock-market-prediction
+Shyam R, V. P. (2020). Stock Prediction Overview and a Simple LSTM based Prediction Model. International Research Journal of Engineering and Technology (IRJET).
+
 
 
