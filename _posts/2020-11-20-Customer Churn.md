@@ -1,5 +1,5 @@
 ---
-title:  "Customer Churn Prediction"
+title:  "Customer Churn"
 category: posts
 date: 2020-11-20
 header:
@@ -38,19 +38,34 @@ I obtained the test and train datasets for my project from Kaggle.com, which had
 
 The dataset was fairly clean and contained no missing values.  State, area code, and the Boolean variables (including the churn target variable) were converted to factors.
 
-EDA
+#### EDA
 A frequency distribution of the churn target variable indicated that 388 customers churned out of a total of 2,666 customers, reflecting an overall churn rate of 14.6%.  
 
-
-| ![PNG](/images/cc1_dataset.png)   | 
+| ![PNG](/images/cc2_distribution.png)   | 
 |:--:| 
 | *Figure 2: Distribution of Target Variable* |
 
 Histograms, density plots, boxplots, and frequency distributions (for the categorical variables) were used to analyze each of the variables individually, as well as in combination with other variables.  
 
-Key findings during the EDA phase indicated that churn was much higher for customers who had the international plan, higher day charges, and more customer service calls.  It was also found that there were strong correlations between the number of minutes and total charges for each of day, evening, night, and international calls.  This made sense as total charges should be a function of the time spent on calls.  As a result, the number of minutes should be excluded from the model to avoid the problem of multicollinearity.  
+| ![PNG](/images/cc3_intl_bar.png)   | 
+|:--:| 
+| *Figure 3: International Plan Churn - Bar Plot* |
 
-Modeling
+| ![PNG](/images/cc4_intl_prop.png)   | 
+|:--:| 
+| *Figure 4: International Plan Churn - Proportion* |
+
+| ![PNG](/images/cc5_cs_bar.png)   | 
+|:--:| 
+| *Figure 5: Customer Service Call Churn - Bar Plot* |
+
+| ![PNG](/images/cc2_distribution.png)   | 
+|:--:| 
+| *Figure 6: Customer Service Call Churn - Proportion* |
+
+Key findings during the EDA phase indicated that churn was much higher for customers who had the international plan and more customer service calls.  It was also found that there were strong correlations between the number of minutes and total charges for each of day, evening, night, and international calls.  This made sense as total charges should be a function of the time spent on calls.  As a result, the number of minutes should be excluded from the model to avoid the problem of multicollinearity.  
+
+#### Modeling
           Numerous logistic regression models were created in R, based on the initial EDA, correlation analysis and personal experience.  The final model calculated predicted churn based on whether the customer had the international plan and/or the voicemail plan, the number of international and customer service calls, and each of the charges for day, evening, night, and international calls.  Model parameters and statistics are shown below:
 
 | ![PNG](/images/TBD.png)   | 
@@ -87,7 +102,7 @@ f_meas	0.924682
 
 
 
-Results
+### Results
           The confusion matrix and statistics for the test set were in line with the training set as shown below:
 Exhibit 4 – Confusion Matrix and Statistics for Test Dataset
 Metric	Score
@@ -106,8 +121,9 @@ recall	0.965035
 f_meas	0.918469
  
 
-         The confusion matrix for the test set indicates strong values for accuracy, precision, and recall, as with the training set.  However, when analyzed more closely, it appears that the model was not as good at predicting true positives.  In this case, that would mean that the model did not correctly predict that a customer would churn when they, in fact, did.  This could indicate that the dataset used for this study may not have included all of the factors affecting customer churn.  For example, the customer may have found a better deal with another provider and cancelled without making any customer service calls.  This would be difficult to detect based on the dataset for this model, without being able to compare the fees charged by the company in question with what other providers are charging.  
-          In addition, the most predictive variables for the final model were arranged in order of importance as shown below:
+The confusion matrix for the test set indicates strong values for accuracy, precision, and recall, as with the training set.  However, when analyzed more closely, it appears that the model was not as good at predicting true positives.  In this case, that would mean that the model did not correctly predict that a customer would churn when they, in fact, did.  This could indicate that the dataset used for this study may not have included all of the factors affecting customer churn.  For example, the customer may have found a better deal with another provider and cancelled without making any customer service calls.  This would be difficult to detect based on the dataset for this model, without being able to compare the fees charged by the company in question with what other providers are charging.  
+
+In addition, the most predictive variables for the final model were arranged in order of importance as shown below:
 
 
 Field	 Overall 
@@ -123,40 +139,12 @@ Total.night.charge	         2.21
 Based on these results, the client may want to further explore why customers with international plans are canceling and consider offering additional services.  In addition, efforts should be made to minimize customer service calls, as well as improving the quality of such calls to further engage the customer, especially for customers with higher total day charges.  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Conclusion
+### Conclusion
           This study found that a logistic model can be used to accurately predict overall customer churn, as well as determining the key variables contributing to such churn.  Although the model was good overall at predicting whether a customer would churn or not, additional efforts could be made to focus on customers that were not expected to churn, but actually did, as the unexpected loss of customers can have significant impact on company revenue and growth.  Datasets incorporating more features relating to churn could also be incorporated.  
           The key fields leading to churn were identified for possible corrective action.  Although such fields were identified, further analysis could be done to get to the true source of the problem (such as why customers with the international plan have a higher churn rate), so additional retention efforts can be made.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-References
+### References
 
 https://towardsdatascience.com/machine-learning-powered-churn-analysis-for-modern-day-  business-leaders-ad2177e1cb0d
 https://www.kdnuggets.com/2019/05/churn-prediction-machine-learning.html
