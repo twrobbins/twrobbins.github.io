@@ -122,17 +122,14 @@ The key fields leading to churn were identified for possible corrective action. 
 
 ### References
 
-Anderson, R. (2019, December 23). Stock Price Prediction Using Python & Machine Learning. Retrieved from Medium: https://medium.com/@randerson112358/stock-price-prediction-using-python-machine-learning
-Banushev, B. (2019, January 14). Using the latest advancements in AI to predict stock market movements. Retrieved from Python Awesome: https://pythonawesome.com/using-the-latest-advancements-in-ai-to-predict-stock-market-movements/
-Ganegedara, T. (2020, January 1). Stock Market Predictions with LSTM in Python. Retrieved from Data Camp: https://www.datacamp.com/community/tutorials/lstm-python-stock-market
-Koehrsen, W. (2018, January 19). Stock Prediction in Python. Retrieved from Towards Data Science: https://towardsdatascience.com/stock-prediction-in-python
-Kohorst, L. (2018, November 9). Predicting Stock Prices with Python. Retrieved from Towards Data Science: https://towardsdatascience.com/predicting-stock-prices-with-python
-Migdon, H. (2020, September 2). How To Use the Alpha Vantage API with Python to Create a Stock Market Prediction App. Retrieved from Last Call - The RapidAPI Blog: https://rapidapi.com/blog/stock-market-prediction-python-api/
-Müller, F. (2020, March 24). Stock market prediction: a time series forecasting problem. Retrieved from Relataly: https://www.relataly.com/stock-market-prediction-using-a-recurrent-neural-network
-Nayak, A. (2019, March 18). Predicting Stock Price with LSTM. Retrieved from Towards Data Science: https://towardsdatascience.com/predicting-stock-price-with-lstm
-Pochetti, F. (2014, September 20). Stock Market Prediction in Python Intro. Retrieved from Francesco Pochetti: http://francescopochetti.com/stock-market-prediction-part-introduction
-Shamdasani, S. (2017, December 15). Build a Stock Prediction Algorithm. Retrieved from Enlight: https://enlight.nyc/projects/stock-market-prediction
-Shyam R, V. P. (2020). Stock Prediction Overview and a Simple LSTM based Prediction Model. International Research Journal of Engineering and Technology (IRJET).
-
-
-
+1. Anderson, R. (2019, December 23). Stock Price Prediction Using Python & Machine Learning. Retrieved from Medium: https://medium.com/@randerson112358/stock-price-prediction-using-python-machine-learning
+2. Banushev, B. (2019, January 14). Using the latest advancements in AI to predict stock market movements. Retrieved from Python Awesome: https://pythonawesome.com/using-the-latest-advancements-in-ai-to-predict-stock-market-movements/
+3. Ganegedara, T. (2020, January 1). Stock Market Predictions with LSTM in Python. Retrieved from Data Camp: https://www.datacamp.com/community/tutorials/lstm-python-stock-market
+4. Koehrsen, W. (2018, January 19). Stock Prediction in Python. Retrieved from Towards Data Science: https://towardsdatascience.com/stock-prediction-in-python
+5. Kohorst, L. (2018, November 9). Predicting Stock Prices with Python. Retrieved from Towards Data Science: https://towardsdatascience.com/predicting-stock-prices-with-python
+6. Migdon, H. (2020, September 2). How To Use the Alpha Vantage API with Python to Create a Stock Market Prediction App. Retrieved from Last Call - The RapidAPI Blog: https://rapidapi.com/blog/stock-market-prediction-python-api/
+7. Müller, F. (2020, March 24). Stock market prediction: a time series forecasting problem. Retrieved from Relataly: https://www.relataly.com/stock-market-prediction-using-a-recurrent-neural-network
+8. Nayak, A. (2019, March 18). Predicting Stock Price with LSTM. Retrieved from Towards Data Science: https://towardsdatascience.com/predicting-stock-price-with-lstm
+9. Pochetti, F. (2014, September 20). Stock Market Prediction in Python Intro. Retrieved from Francesco Pochetti: http://francescopochetti.com/stock-market-prediction-part-introduction
+10. Shamdasani, S. (2017, December 15). Build a Stock Prediction Algorithm. Retrieved from Enlight: https://enlight.nyc/projects/stock-market-prediction
+11. Shyam R, V. P. (2020). Stock Prediction Overview and a Simple LSTM based Prediction Model. International Research Journal of Engineering and Technology (IRJET).
