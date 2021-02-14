@@ -105,11 +105,11 @@ Based on these results, the client may want to further explore why customers wit
 
 | ![PNG](/images/cc13_cs_ip.png)   | 
 |:--:| 
-| *Figure 13: Customer Service Calls and International Plan* |
+| *Figure 13: Churn by Customer Service Calls and International Plan* |
 
 | ![PNG](/images/cc14_dc_ip.png)   | 
 |:--:| 
-| *Figure 14: Day Charges and International Plan* |
+| *Figure 14: Churn by Day Charges and International Plan* |
 
 ## NEED TO ADD EXPLANATION FOR THESE GRAPHS
 
