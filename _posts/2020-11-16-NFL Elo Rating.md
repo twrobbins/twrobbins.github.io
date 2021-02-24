@@ -63,7 +63,7 @@ A density plot of the inital Elo ratings is plotted below:
 |:--:| 
 | *Figure 5: Density Plot of Initial Elo Ratings* |
 
-The second dataset obtained from FiveThirtyEight consisted of the team matchups for the 2020 regular season, as well as the actual scores through week 7.   There are 16 regular season games for each of the 32 teams, for a total of 512 games.  The first 5 records for the dataset are shown below:
+The second dataset obtained from FiveThirtyEight consisted of the team matchups for the 2020 regular season, as well as the actual scores through week 7.   There are 16 regular season games for each of the 32 teams, for a total of 512 games.  The head and tail of the dataframe is shown below:
 
 | ![PNG](/images/nfl06_dataset_2.png)   | 
 |:--:| 
@@ -71,85 +71,47 @@ The second dataset obtained from FiveThirtyEight consisted of the team matchups 
 
 After doing some research, I found that team1 represents the home team and team2 the away team.  This will be useful later as history has shown the odds to favor a home team win over an away team win.  score1 and score 2 represent the actual scores of each game.  
 
-#### Data Preprocessing
-The initial datasets I obtained from FiveThirtyEight with the 2020 matchups did not include the week number of the NFL season.   Thus, I added this field to each of the datasets by matching up the date of each game with the corresponding week of the 2020 NFL season (there are 16 regular season games for each team, as well as one “bye week” where they do not play).  
+### Methodology - Elo Calculation Cycle 
+I’m now going to provide you an overview of the Elo calculation cycle.  We start with the pre-game Elo ratings.  For week 1, this is going to be the final Elo ratings from the 2019 season which we have in the 1st dataset we obtained from 538.com.  For subsequent weeks, we’re going to take the previous week’s post-game Elo rating.  
 
-The second dataset contained the scheduled games for the 2020 season, as well as the actual scores of each game through week 7, but the winning team was not indicated.  I thus added a simple function to reflect the outcome of each game with 1 indicating a home team win and 0 a home team loss.
+We then account for any adjustments.  In this model, I have an adjustment for home field advantage.  Studies have shown that teams playing at home have a greater probability of winning.  We’re thus going to add 35 points to the home team’s pre-game Elo rating.
+We then take these numbers and feed them into formula 1 to calculate each team’s odds of winning.  The formula looks rather complicated, but its’ basically a function of the difference between the two teams’ pre-game Elo ratings.  The team with an Elo rating greater than .50 will be considered the predicted winner.  
 
-I would need to create two key tables to track the results and Elo’s for my project.  The first table would be created to track the actual and predicted results of each game, as well as the starting and ending Elo’s of each team by week.  The first 6 fields were taken from Dataset 2, and the remaining fields were added:
+We then compare the predicted results with the actual.  If the home team wins, we indicate this with a one.  If the home team loses, we indicate this with a 0.  
 
-Exhibit 5 – Game Results Table
-	
-Column	Definition
-week	Week of the NFL season
-date	Date of game
-team1	Abbreviation for home team
-team2	Abbreviation for away team
-score1	Home team's score
-score2	Away team's score
-actual_outcome	The actual winner of the game
-elo1_pre	Home team's Elo rating before the game
-elo2_pre	Away team's Elo rating before the game
-elo1_prob	Home team's probability of winning according to Elo ratings
-elo2_prob	Away team's probability of winning according to Elo ratings
-elo1_post	Home team's Elo rating after the game
-elo2_post	Away team's Elo rating after the game
-pred_outcome	The predicted winner of the game
+We then feed this data into formula 2 to calculate the post-game Elo ratings for each team.  RA is the pre-game Elo rating, to which we add the difference between the actual score, SA, and the team’s probability of winning, EA from formula 1.  We then multiply this difference by k, which represents the K-factor.  The K-factor is a constant we use to determine how much each new game changes the teams’ Elo rating.  The higher the K, the greater the impact of each individual game on a team’s Elo rating.  For this study, I’m going to use a K of 20, which is pretty standard for NFL games.  
 
-The second table would be used to keep track of each team’s Elo rating throughout each week of the season with the following fields:
+Once we have calculated the post-game Elo ratings using formula 2, we carry this forward to the next week’s pre-game Elo rating.  The cycle then repeats itself for each of the games on the schedule in dataset 2.  
 
-Exhibit 6 – Elo Ratings Table
-Column	Definition
-week	Week of the NFL season
-team	Date of game
-elo	Each team's final Elo Rating for the week
+If we repeat this process through week 7 of the NFL season, we come up with the following graphs, which show the change in Elo rating for each team, by division, through week 7.  We can use this data to determine who the winner of each division is likely to be and get a taste of what the playoff s will look like.
 
-By resorting this table after each game in descending order by week, I would be able to easily pull the latest Elo rating for each team.
+| ![PNG](/images/nfl07_week7_ratings.png)   | 
+|:--:| 
+| *Figure 7: Week 7 NFL Rankings* |
 
-In addition to the two tables I created above, I also created two functions in R: one to calculate each team’s wining probability (see Exhibit 1 above) and another to recalculate each team’s Elo rating after each game (see Exhibit 2 above).  As input into the first formula, we take the prior week’s Elo rating for the home team and add an additional 100 points to reflect home field advantage and enter this into the model as Ra.  Feeding these numbers into the formula to calculate the expected win probability for the home team (Ea) yields a probability between 0 and 1.  Since the home team probability of winning and the away team probability of winning must add up to 100%, the away team winning probability (Eb) is determined by subtracting the home team win probability from 1.  After the predicted win probabilities are determined, they are compared to the actual game results to calculate the Elo ratings for the next game on their schedule. 
+As a practical application, we can take the post-game Elo ratings from week 7 and carry them forward to week 8 to make game predictions.  Basically, you just look at the far- right column to see who the predicted winner is and place your bet on that team.  For example, for the Atlanta/Carolina game on the first line, the predicted winner would be Atlanta, as they have the greater probability of winning.
+
+| ![PNG](/images/nfl08_week8_preds.png)   | 
+|:--:| 
+| *Figure 8: Week 8 NFL Predictions* |
+
+This slide shows the top 12 ranked teams sorted in descending order by Elo rating.  Based on the top Elo ratings through week 7, we can get a picture of who might be in the Super Bowl.  Looks like Kansas City has the highest Elo rating, so they have the best chance of going to the Superbowl and representing the AFC.  Tennessee has the 2nd highest Elo rating, but they are also in the AFC, and there can only be one winner for each conference.  Thus the 3rd ranked team, Green Bay, who is in the NFC, would likely face Kansas City in the Superbowl.  
+
+| ![PNG](/images/nfl09_top_elo.png)   | 
+|:--:| 
+| *Figure 9: Top Elo Ratings* |
+
+The remaining teams have the highest percentage of filling the 12 playoff spots for the 2020 season.  
 
 
-### Results
-In order to evaluate how well my model performed, I calculated a confusion matrix, along with some other useful statistics, as shown below:
+### Results                                                           
+To evaluate how well my model performed, I calculated a confusion matrix, along with some other useful statistics.  The confusion matrix shows that there were 41 true positives (win was predicted and they won), 25 false positives (win was predicted when they actually lost), 12 false negatives (loss predicted when they actually won), and 27 true negatives (loss predicted and they lost).  This reflects an accuracy of 64.76% for the 2020 season through week 7, which appears to be pretty accurate.
 
-Exhibit 7 – Confusion Matrix
-Confusion Matrix and Statistics
+I also calculated a few other statistics, to shed more light on the predicted vs actual results.  Sensitivity, also referred to as recall or the true positive rate (TPR), is a measure of the proportion of correct positive results, whereas specificity, also referred to as the true negative rate (TPR) is a measure of the proportion of correct negative results.  The sensitivity of 0.7736 indicates that the model correctly predicted wins at a high rate.  On the other hand, the specificity of 0.5192 indicates that the rate at which the model correctly predicted losses was not too accurate, but better than random guessing.  Based on these statistics, it appears the model is pretty accurate at predicting the proportion of wins, but not very accurate at predicting the proportion of losses.  
 
-          Reference
-Prediction Win Loss
-      Win   41   25
-      Loss  12   27
-                                          
-               Accuracy : 0.6476          
-                                          
-            Sensitivity : 0.7736          
-            Specificity : 0.5192          
-         Pos Pred Value : 0.6212          
-         Neg Pred Value : 0.6923                  
-                                                                            
-The confusion matrix shows that there were 41 true positives (win predicted and they won), 25 false positives (win was predicted but they actually lost), 12 false positives (loss predicted but they actually won), and 27 true negatives (loss predicted and they lost).  This reflects an accuracy of 64.76% for the 2020 season through week 7, which appears to be pretty accurate, compared to an accuracy of 50% based on guessing.
-
-I also calculated a few other statistics, to shed more light on the predicted vs actual results.  Sensitivity, also referred to as recall or the true positive rate (TPR), is a measure of the proportion of correct positive results.  The sensitivity of 0.7736 is the rate at which the model correctly predicted wins.  On the other hand, specificity, also referred to as the true negative rate (TPR) is a measure is a of correct negative results.  The specificity of 0.5192 is the rate at which the model correctly predicted losses.  Based on this information, it appears the model is better at predicting the proportion of wins than the proportion of losses.  
-
-The positive and negative predictive values (PPV and NPV, respectively) are the proportions of true positive and true negative results, respectively.  A high result can be interpreted as indicating the accuracy of such a statistic.  The PPV of 0.6212 indicates that the model is fairly accurate in predicting true positives while the NPV of 0.6923 is indicates that the model is even better at predicting true negatives.
+The positive and negative predictive values (PPV and NPV) are the proportions of true positive and true negative results.  The PPV of 0.6212 indicates that the model is fairly accurate in predicting actual wins, while the NPV of 0.6923 indicates that the model is more accurate at predicting actual losses
 
 
 ### Conclusion
 The Elo model developed for this study provided results very comparably to FiveThirtyEight’s more complex Elo model, which has an accuracy of approximately 65% correct per year.  However, it’s worth noting that the accuracy of the predictions for the model in this study was based on a relatively small population of 105 games and thus a larger sample could lead to different results.
 Future work to predict the outcome of NFL games could include more adjustments to the pre-game Elo ratings, such as the adjusting for the quarterback Elo rating, rest time between games, and distance traveled.  In addition, no individual player data was used.  Having top players who have gone to the Pro Bowl and/or were awarded MVP could significantly affect the results.
-
-
-References
-1. Alvarez, R. (2020). Machine Learning Playoff Predictions: Predicting the Football Greats.
-2. Balreira, E. C., & Miceli, B. K. (2019). Improving Foresight Predictions in the 2002-2018 NFL        Regular-Seasons: A Classic Tale of Quantity vs. Quality. Journal of Advances in Mathematics and Computer Science, 1-14.
-3. Bonds-Raacke, J. M., Fryer, L. S., Nicks, S. D., & Durr, R. T. (2001). Hindsight bias demonstrated in the prediction of a sporting event. The Journal of social psychology, 141(3), 349-352.
-4. Boulier, B. L., & Stekler, H. O. (2003). Predicting the outcomes of National Football League games. International Journal of forecasting, 19(2), 257-270.
-5. Bosch, P. (2018). Predicting the winner of NFL-games using Machine and Deep Learning.
-6. Harville, D. (1980). Predictions for National Football League games via linear-model methodology. Journal of the American Statistical Association, 75(371), 516-524.
-7. Klein, J., Frowein, A., & Irwin, C. (2018). Predicting Game Day Outcomes in National Football League Games. SMU Data Science Review, 1(2), 6.
-8. Lee, M. D., Danileiko, I., & Vi, J. (2018). Testing the ability of the surprisingly popular method to predict NFL games. Judgment and Decision Making, 13(4), 322.
-9. Miller, T. W. (2015). Sports analytics and data science: winning the game with methods and models. FT Press.
-Pelechrinis, K., & Papalexakis, E. (2016). The anatomy of american football: evidence from 7 years of NFL game data. PLoS one, 11(12), e0168716.
-10. Uzoma, A. O., & Nwachukwu, E. O. (2015). A hybrid prediction system for american NFL results. International Journal of Computer Applications Technology and Research, 4(01), 42-47.
-11. how-our-nfl-predictions-work. (2020, October 15). Retrieved from FiveThirtyEight.com: https://fivethirtyeight.com/methodology/how-our-nfl-predictions-work/
-
