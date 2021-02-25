@@ -133,16 +133,16 @@ Future work to predict the outcome of NFL games could include more adjustments t
 
 ### References
 1. Alvarez, R. (2020). Machine Learning Playoff Predictions: Predicting the Football Greats.
-2. Balreira, E. C., & Miceli, B. K. (2019). Improving Foresight Predictions in the 2002-2018 NFL        Regular-Seasons: A Classic Tale of Quantity vs. Quality. Journal of Advances in Mathematics and Computer Science, 1-14.
-Bonds-Raacke, J. M., Fryer, L. S., Nicks, S. D., & Durr, R. T. (2001). Hindsight bias demonstrated in the prediction of a sporting event. The Journal of social psychology, 141(3), 349-352.
-Boulier, B. L., & Stekler, H. O. (2003). Predicting the outcomes of National Football League games. International Journal of forecasting, 19(2), 257-270.
-Bosch, P. (2018). Predicting the winner of NFL-games using Machine and Deep Learning.
-Harville, D. (1980). Predictions for National Football League games via linear-model methodology. Journal of the American Statistical Association, 75(371), 516-524.
-Klein, J., Frowein, A., & Irwin, C. (2018). Predicting Game Day Outcomes in National Football League Games. SMU Data Science Review, 1(2), 6.
-Lee, M. D., Danileiko, I., & Vi, J. (2018). Testing the ability of the surprisingly popular method to predict NFL games. Judgment and Decision Making, 13(4), 322.
-Miller, T. W. (2015). Sports analytics and data science: winning the game with methods and models. FT Press.
-Pelechrinis, K., & Papalexakis, E. (2016). The anatomy of american football: evidence from 7 years of NFL game data. PLoS one, 11(12), e0168716.
-Uzoma, A. O., & Nwachukwu, E. O. (2015). A hybrid prediction system for american NFL results. International Journal of Computer Applications Technology and Research, 4(01), 42-47.
-how-our-nfl-predictions-work. (2020, October 15). Retrieved from FiveThirtyEight.com: https://fivethirtyeight.com/methodology/how-our-nfl-predictions-work/
+2. Balreira, E. C., & Miceli, B. K. (2019). Improving Foresight Predictions in the 2002-2018 NFL Regular-Seasons: A Classic Tale of  Quantity vs. Quality. Journal of Advances in Mathematics and Computer Science, 1-14.
+3. Bonds-Raacke, J. M., Fryer, L. S., Nicks, S. D., & Durr, R. T. (2001). Hindsight bias demonstrated in the prediction of a sporting event. The Journal of social psychology, 141(3), 349-352.
+4. Boulier, B. L., & Stekler, H. O. (2003). Predicting the outcomes of National Football League games. International Journal of forecasting, 19(2), 257-270.
+5. Bosch, P. (2018). Predicting the winner of NFL-games using Machine and Deep Learning.
+6. Harville, D. (1980). Predictions for National Football League games via linear-model methodology. Journal of the American Statistical Association, 75(371), 516-524.
+7. Klein, J., Frowein, A., & Irwin, C. (2018). Predicting Game Day Outcomes in National Football League Games. SMU Data Science Review, 1(2), 6.
+8. Lee, M. D., Danileiko, I., & Vi, J. (2018). Testing the ability of the surprisingly popular method to predict NFL games. Judgment and Decision Making, 13(4), 322.
+9. Miller, T. W. (2015). Sports analytics and data science: winning the game with methods and models. FT Press.
+10. Pelechrinis, K., & Papalexakis, E. (2016). The anatomy of american football: evidence from 7 years of NFL game data. PLoS one, 11(12), e0168716.
+11. Uzoma, A. O., & Nwachukwu, E. O. (2015). A hybrid prediction system for american NFL results. International Journal of Computer Applications Technology and Research, 4(01), 42-47.
+12. how-our-nfl-predictions-work. (2020, October 15). Retrieved from FiveThirtyEight.com: https://fivethirtyeight.com/methodology/how-our-nfl-predictions-work/
 
 
