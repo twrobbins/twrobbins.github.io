@@ -1,11 +1,10 @@
 ---
-title:  "NFL Game Predictions Using Elo Rating"
+title:  "NFL Outcomes"
 category: posts
 date: 2020-11-16
 header:
   teaser: "images/nfl.jfif"
-excerpt: The purpose of this project is to create an Elo model to predict which team will win NFL games.
----
+excerpt: The purpose of this project is to create a model to predict the winner of NFL games.
 
 | ![PNG](/images/nfl.jfif)|
 
