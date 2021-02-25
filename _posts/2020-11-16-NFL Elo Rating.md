@@ -105,9 +105,24 @@ The remaining teams have the highest percentage of filling the 12 playoff spots 
 
 
 ### Results                                                           
-To evaluate how well my model performed, I calculated a confusion matrix, along with some other useful statistics.  The confusion matrix shows that there were 41 true positives (win was predicted and they won), 25 false positives (win was predicted when they actually lost), 12 false negatives (loss predicted when they actually won), and 27 true negatives (loss predicted and they lost).  This reflects an accuracy of 64.76% for the 2020 season through week 7, which appears to be pretty accurate.
+To evaluate how well my model performed, I calculated a confusion matrix, along with some other useful statistics.  
 
-I also calculated a few other statistics, to shed more light on the predicted vs actual results.  Sensitivity, also referred to as recall or the true positive rate (TPR), is a measure of the proportion of correct positive results, whereas specificity, also referred to as the true negative rate (TPR) is a measure of the proportion of correct negative results.  The sensitivity of 0.7736 indicates that the model correctly predicted wins at a high rate.  On the other hand, the specificity of 0.5192 indicates that the rate at which the model correctly predicted losses was not too accurate, but better than random guessing.  Based on these statistics, it appears the model is pretty accurate at predicting the proportion of wins, but not very accurate at predicting the proportion of losses.  
+| ![PNG](/images/nfl10_cm.png)   | 
+|:--:| 
+| *Figure 10: Confusion Matrix* |
+
+
+
+
+The confusion matrix shows that there were 41 true positives (win was predicted and they won), 25 false positives (win was predicted when they actually lost), 12 false negatives (loss predicted when they actually won), and 27 true negatives (loss predicted and they lost).  This reflects an accuracy of 64.76% for the 2020 season through week 7, which appears to be pretty accurate.
+
+I also calculated a few other statistics, to shed more light on the predicted vs actual results.  
+
+| ![PNG](/images/nfl11_stats.png)   | 
+|:--:| 
+| *Figure 11: Statistics* |
+
+Sensitivity, also referred to as recall or the true positive rate (TPR), is a measure of the proportion of correct positive results, whereas specificity, also referred to as the true negative rate (TPR) is a measure of the proportion of correct negative results.  The sensitivity of 0.7736 indicates that the model correctly predicted wins at a high rate.  On the other hand, the specificity of 0.5192 indicates that the rate at which the model correctly predicted losses was not too accurate, but better than random guessing.  Based on these statistics, it appears the model is pretty accurate at predicting the proportion of wins, but not very accurate at predicting the proportion of losses.  
 
 The positive and negative predictive values (PPV and NPV) are the proportions of true positive and true negative results.  The PPV of 0.6212 indicates that the model is fairly accurate in predicting actual wins, while the NPV of 0.6923 indicates that the model is more accurate at predicting actual losses
 
