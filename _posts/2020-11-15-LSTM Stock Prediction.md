@@ -1,5 +1,5 @@
 ---
-title:  "Stock Market Prediction using LSTMs"
+title:  "LSTM Stock Predictions"
 category: posts
 date: 2020-11-15
 header:
