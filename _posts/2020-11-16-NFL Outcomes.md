@@ -5,8 +5,11 @@ date: 2020-11-16
 header:
   teaser: "images/nfl.jfif"
 excerpt: The purpose of this project is to create a model to predict the winner of NFL games.
+---
 
 | ![PNG](/images/nfl.jfif)|
+
+<br>
 
 Link to full [code](https://github.com/twrobbins/Github-Files-Updated/blob/main/DSC680-Applied%20Data%20Science/Project%202/DSC680-Updated_Final_NFL_Prediction.ipynb)
 
