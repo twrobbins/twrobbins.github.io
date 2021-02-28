@@ -111,9 +111,6 @@ Based on these results, the client may want to further explore why customers wit
 |:--:| 
 | *Figure 14: Churn by Day Charges and International Plan* |
 
-## NEED TO ADD EXPLANATION FOR THESE GRAPHS
-
-
 ### Conclusion
 This study found that a logistic model can be used to accurately predict overall customer churn, as well as determining the key variables contributing to such churn.  Although the model was good overall at predicting whether a customer would churn or not, additional efforts could be made to focus on customers that were not expected to churn, but actually did, as the unexpected loss of customers can have significant impact on company revenue and growth.  Datasets incorporating more features relating to churn could also be incorporated.  
 
